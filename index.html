@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rishabh & Nishu · Shubh Vivah</title>
+<meta name="description" content="Rishabh Tyagi & Nishu Tyagi invite you to their wedding. Engagement 19 Nov 2026 · Wedding 11 Dec 2026.">
+<meta property="og:title" content="Rishabh & Nishu · Shubh Vivah">
+<meta property="og:description" content="Engagement · 19 November 2026 | Wedding · 11 December 2026. Tap to open your invitation.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#7a1f2b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237a1f2b'/%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='%23d4a85a' stroke-width='2'/%3E%3Ctext x='32' y='40' font-family='Georgia' font-size='20' text-anchor='middle' fill='%23f3dca6'%3ER%26N%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap&text=%E0%A5%A5%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%97%E0%A4%A3%E0%A5%87%E0%A4%B6%E0%A4%BE%E0%A4%AF%E0%A4%A8%E0%A4%AE%E0%A4%83%E0%A4%B6%E0%A5%81%E0%A4%AD%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B9" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fbf6ee; --paper:#fffaf3; --maroon:#7a1f2b; --maroon-2:#621824; --gold:#b8893b; --gold-2:#d9b166;
+  --marigold:#e8912d; --ink:#2f211c; --muted:#6b574b; --gold-text:#94691f; --line:#e7d9c3;
+  --script:'Pinyon Script',cursive; --serif:'Cormorant Garamond',Georgia,serif; --deva:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--serif);font-weight:500;font-size:18px;font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;color:var(--ink);background:#efe6d8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden}
+.frame{max-width:480px;margin:0 auto;background:var(--ivory);min-height:100svh}
+svg{display:block}
+a{color:inherit}
+
+/* ---------- COVER: temple doors ---------- */
+.cover{position:fixed;inset:0;z-index:50;display:flex;justify-content:center;pointer-events:auto}
+.cover.gone{display:none}
+.doors{position:relative;width:100%;max-width:480px;height:100%;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.door{position:absolute;top:0;bottom:0;width:50.5%;background:var(--maroon);will-change:transform;transition:transform 1.1s cubic-bezier(.65,0,.35,1)}
+.door.l{left:0;border-right:1px solid var(--maroon-2)}
+.door.r{right:0;border-left:1px solid var(--maroon-2)}
+.door::before{content:"";position:absolute;inset:16px 14px;border:1px solid var(--gold-2);opacity:.7}
+.door::after{content:"";position:absolute;inset:22px 20px;border:1px solid var(--gold-2);opacity:.35}
+.door .knob{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;border:2px solid var(--gold-2);margin-top:-7px}
+.door.l .knob{right:22px}.door.r .knob{left:22px}
+.door .motif{position:absolute;left:50%;width:70px;margin-left:-35px;color:var(--gold-2);opacity:.75}
+.door .motif.t{top:56px}.door .motif.b{bottom:56px}
+.medal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;color:#f3dca6;width:260px;transition:opacity .35s ease,transform .35s ease}
+.medal .disc{width:132px;height:132px;margin:0 auto;border-radius:50%;background:var(--paper);border:2px solid var(--gold-2);box-shadow:0 0 0 6px var(--maroon),0 0 0 7px var(--gold-2);display:flex;align-items:center;justify-content:center}
+.medal .disc svg{width:104px;height:auto;color:var(--maroon)}
+.medal .sv{font-family:var(--deva);font-size:22px;margin-top:26px;color:var(--gold-2)}
+.medal .nm{font-family:var(--script);font-size:40px;line-height:1.1;margin-top:4px}
+.medal .tap{font-size:14px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;margin-top:14px;opacity:.85;animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.open .door.l{transform:translate3d(-101%,0,0)}
+.open .door.r{transform:translate3d(101%,0,0)}
+.open .medal{opacity:0;transform:translate(-50%,-50%) scale(.9)}
+
+/* ---------- COMMON ---------- */
+section{padding:64px 28px;text-align:center}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.title{font-family:var(--script);font-weight:400;font-size:46px;color:var(--maroon);line-height:1.15;margin:8px 0 4px}
+.lead{font-size:20px;line-height:1.6;color:var(--muted);font-style:italic;font-weight:500}
+.orn{width:64px;margin:22px auto;color:var(--gold)}
+.reveal{opacity:0;transform:translate3d(0,18px,0);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- HERO ---------- */
+.hero{padding:0 0 56px;position:relative}
+.toran{width:100%;height:auto}
+.ganesh{width:132px;margin:14px auto 0;color:var(--maroon)}
+.shloka{font-family:var(--deva);font-size:21px;color:var(--maroon);margin-top:14px}
+.bless{font-size:18px;font-style:italic;color:var(--muted);margin-top:4px;padding:0 28px}
+.card{margin:30px 22px 0;padding:38px 16px;border:1px solid var(--gold);outline:1px solid var(--line);outline-offset:6px;background:var(--paper)}
+.names{font-family:var(--script);font-weight:400;color:var(--maroon);line-height:1}
+.names .n{display:block;font-size:60px}
+.names .amp{display:block;font-family:var(--serif);font-style:italic;font-size:26px;color:var(--gold-text);margin:8px 0}
+.full{font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.inv{font-size:20px;font-style:italic;color:var(--ink);line-height:1.6}
+.dates{display:flex;justify-content:center;gap:0;margin-top:22px}
+.dates div{flex:1;padding:4px 8px}
+.dates div+div{border-left:1px solid var(--line)}
+.dates b{display:block;font-size:28px;font-weight:700;color:var(--maroon)}
+.dates span{font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- COUNTDOWN ---------- */
+.cdown{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.countdown{display:flex;justify-content:center;margin-top:24px}
+.cd{flex:1;max-width:90px}
+.cd+.cd{border-left:1px solid var(--line)}
+.cd b{display:block;font-size:40px;font-weight:600;color:var(--maroon);font-variant-numeric:lining-nums tabular-nums;font-feature-settings:'lnum' 1,'tnum' 1;line-height:1.1}
+.cd i{font-style:normal;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- EVENTS ---------- */
+.event{margin-top:34px;padding:30px 22px;border:1px solid var(--line);background:var(--paper);position:relative}
+.event::before{content:"";position:absolute;left:50%;top:-1px;width:60px;height:3px;margin-left:-30px;background:var(--marigold)}
+.event h3{font-family:var(--script);font-weight:400;font-size:42px;color:var(--maroon);line-height:1}
+.event .dt{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
+.event .dt .side{font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);width:92px;padding:6px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.event .dt .big{font-size:54px;font-weight:700;color:var(--maroon);line-height:1}
+.event .time{font-size:20px;font-weight:600;font-style:italic;color:var(--ink);margin-top:12px}
+.event .venue{margin-top:18px}
+.event .venue strong{display:block;font-size:24px;font-weight:700}
+.event .venue span{display:block;font-size:18px;color:var(--muted);margin-top:4px;line-height:1.45}
+.btns{display:flex;gap:10px;margin-top:20px}
+.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 8px;font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;text-decoration:none;border:1px solid var(--maroon);color:var(--maroon);background:transparent;cursor:pointer;border-radius:2px}
+.btn.solid{background:var(--maroon);color:#fbeed3}
+.btn svg{width:15px;height:15px;flex:none}
+
+/* ---------- FOOTER ---------- */
+.blessing .quote{font-size:22px;line-height:1.6;font-style:italic;max-width:360px;margin:0 auto}
+.footer{background:var(--maroon);color:#f3dca6;padding:60px 28px 80px}
+.footer .title{color:#f3dca6}
+.footer .lead{color:#f3dca6;opacity:.95}
+.footer .btn{border-color:var(--gold-2);color:#f3dca6;max-width:240px;margin:24px auto 0;display:flex}
+.footer .hash{margin-top:26px;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+
+/* below-the-fold sections skip rendering work until scrolled near */
+.lazy{content-visibility:auto;contain-intrinsic-size:auto 600px}
+
+/* ---------- PETALS (light: few elements, transform-only) ---------- */
+.petals{position:fixed;inset:0;pointer-events:none;z-index:40;max-width:480px;margin:0 auto;overflow:hidden}
+.petal{position:absolute;top:-20px;width:11px;height:14px;border-radius:10px 1px 10px 1px;background:var(--marigold);opacity:.8;will-change:transform;animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(var(--dx),105vh,0) rotate(400deg)}}
+
+.music{position:fixed;right:16px;bottom:18px;z-index:45;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:var(--paper);color:var(--maroon);display:none;align-items:center;justify-content:center;cursor:pointer}
+.music.show{display:flex}
+.music svg{width:18px;height:18px}
+
+@media (prefers-reduced-motion:reduce){
+  *:not(.petal),*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body class="locked">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Ganesh Ji line illustration -->
+    <g id="ganesh" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="60" cy="62" r="50" stroke="#b8893b" stroke-width="1" opacity=".55"/>
+      <circle cx="60" cy="62" r="55" stroke="#b8893b" stroke-width="1" stroke-dasharray="1.5 4" opacity=".55"/>
+      <!-- crown -->
+      <g stroke="#b8893b"><path d="M45 40 L48 26 Q52 20 55 14 L60 6 L65 14 Q68 20 72 26 L75 40"/>
+      <path d="M46 34 H74"/><path d="M47 40 H73"/>
+      <circle cx="60" cy="4" r="2.2"/>
+      <path d="M55 26 Q60 20 65 26"/><circle cx="60" cy="31" r="1.6" fill="#b8893b" stroke="none"/></g>
+      <!-- ears -->
+      <path d="M46 46 C30 34 14 44 16 62 C18 76 30 82 44 74"/>
+      <path d="M74 46 C90 34 106 44 104 62 C102 76 90 82 76 74"/>
+      <path d="M24 56 C28 52 34 52 38 56" opacity=".6"/><path d="M96 56 C92 52 86 52 82 56" opacity=".6"/>
+      <!-- head -->
+      <path d="M46 42 C42 52 43 66 50 72 M74 42 C78 52 77 66 70 72"/>
+      <!-- tilak -->
+      <path d="M60 44 V52"/><circle cx="60" cy="55" r="1.6" fill="currentColor" stroke="none"/>
+      <!-- eyes -->
+      <path d="M50 58 Q53 55 56 58"/><path d="M64 58 Q67 55 70 58"/>
+      <!-- trunk curling to the right -->
+      <path d="M53 66 C52 84 57 100 68 104 C77 107 84 99 80 92 C77 87 71 89 72 94"/>
+      <path d="M67 66 C66 80 66 88 70 93"/>
+      <path d="M55 82 Q60 84 65 82" opacity=".6"/><path d="M57 92 Q62 94 67 91" opacity=".6"/>
+      <!-- tusk -->
+      <path d="M51 72 L45 82 L50 80"/>
+      <!-- lotus base -->
+      <path d="M34 122 Q60 112 86 122"/>
+      <path d="M40 120 Q42 110 50 108 Q54 114 52 118"/><path d="M80 120 Q78 110 70 108 Q66 114 68 118"/>
+      <path d="M54 116 Q60 104 66 116"/>
+    </g>
+    <!-- small motif for doors / dividers -->
+    <g id="lotus" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+      <path d="M35 28 C30 18 32 8 35 2 C38 8 40 18 35 28Z"/>
+      <path d="M35 28 C26 24 20 16 20 8 C28 10 33 18 35 28Z"/>
+      <path d="M35 28 C44 24 50 16 50 8 C42 10 37 18 35 28Z"/>
+      <path d="M35 28 C24 30 14 26 8 20 C18 18 28 22 35 28Z"/>
+      <path d="M35 28 C46 30 56 26 62 20 C52 18 42 22 35 28Z"/>
+      <path d="M12 34 H58"/>
+    </g>
+    <g id="marigold"><circle r="6.5" fill="#e8912d"/><circle r="4" fill="#f3a942"/><circle r="1.8" fill="#c96f17"/></g>
+    <path id="leaf" d="M0 0 C5 6 5 14 0 20 C-5 14 -5 6 0 0Z" fill="#4e7a3c"/>
+  </defs>
+</svg>
+
+<!-- ============ COVER ============ -->
+<div class="cover" id="cover">
+  <div class="doors" id="doors" role="button" tabindex="0" aria-label="Open the invitation">
+    <div class="door l"><svg class="motif t" viewBox="0 0 70 36"><use href="#lotus"/></svg><svg class="motif b" viewBox="0 0 70 36"><use href="#lotus"/></svg></div>
+    <div class="door r"><svg class="motif t" viewBox="0 0 70 36"><use href="#lotus"/></svg><svg class="motif b" viewBox="0 0 70 36"><use href="#lotus"/></svg></div>
+    <div class="medal">
+      <div class="disc"><svg viewBox="2 2 116 124"><use href="#ganesh"/></svg></div>
+      <div class="sv">॥ शुभ विवाह ॥</div>
+      <div class="nm">Rishabh &amp; Nishu</div>
+      <div class="tap">Tap to open</div>
+    </div>
+  </div>
+</div>
+
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<!-- ============ SITE ============ -->
+<main class="frame">
+
+  <section class="hero">
+    <svg class="toran" viewBox="0 0 360 46" aria-hidden="true">
+      <path d="M0 6 Q180 22 360 6" stroke="#b8893b" stroke-width="1.2" fill="none"/>
+      <g id="toranItems"></g>
+    </svg>
+    <svg class="ganesh reveal" viewBox="2 2 116 124" aria-label="Lord Ganesha"><use href="#ganesh"/></svg>
+    <div class="shloka reveal">॥ श्री गणेशाय नमः ॥</div>
+    <p class="bless reveal">With the divine blessings of Lord Ganesha<br>and the grace of our elders</p>
+
+    <div class="card reveal">
+      <div class="eyebrow" style="letter-spacing:.12em">Together with their families</div>
+      <h1 class="names" style="margin-top:18px">
+        <span class="n">Rishabh</span>
+        <span class="amp">&amp;</span>
+        <span class="n">Nishu</span>
+      </h1>
+      <div class="full">Rishabh Tyagi · Nishu Tyagi</div>
+      <svg class="orn" viewBox="0 0 70 36"><use href="#lotus"/></svg>
+      <p class="inv">request the honour of your presence<br>as they begin their journey together</p>
+      <div class="dates">
+        <div><b>19 · 11</b><span>Engagement</span></div>
+        <div><b>11 · 12</b><span>Wedding</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cdown lazy">
+    <div class="eyebrow reveal">Counting down to</div>
+    <h2 class="title reveal">the big day</h2>
+    <div class="countdown reveal">
+      <div class="cd"><b id="cd-d">0</b><i>Days</i></div>
+      <div class="cd"><b id="cd-h">00</b><i>Hours</i></div>
+      <div class="cd"><b id="cd-m">00</b><i>Mins</i></div>
+      <div class="cd"><b id="cd-s">00</b><i>Secs</i></div>
+    </div>
+  </section>
+
+  <section class="lazy" id="events">
+    <div class="eyebrow reveal">Join us for</div>
+    <h2 class="title reveal">the celebrations</h2>
+    <div id="event-list"></div>
+  </section>
+
+  <section class="blessing">
+    <svg class="orn reveal" viewBox="0 0 70 36"><use href="#lotus"/></svg>
+    <p class="quote reveal">Two hearts, two families, one sacred bond. Your presence and blessings will make our celebration complete.</p>
+    <p class="lead reveal" style="margin-top:20px;font-size:19px">With love &amp; warm regards,<br>The Tyagi Families</p>
+  </section>
+
+  <section class="footer">
+    <h2 class="title reveal">See you there</h2>
+    <p class="lead reveal">Rishabh &amp; Nishu</p>
+    <button class="btn reveal" id="share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+      Share invite
+    </button>
+    <div class="hash reveal">#RishabhWedsNishu</div>
+  </section>
+</main>
+
+<button class="music" id="music" aria-label="Play or pause music">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+</button>
+
+<script>
+/* ================== EDIT DETAILS HERE ================== */
+const CONFIG = {
+  music: "",                                   // e.g. "/music.mp3" — leave "" for no music
+  weddingStart: "2026-12-11T00:00:00+05:30",   // countdown target
+  events: [
+    { name: "Engagement", date: "2026-11-19", time: "",
+      venue: "The Hari Castle", address: "",
+      mapLink: "https://maps.app.goo.gl/5Pe3vLVRzoSUtDAH9" },
+    { name: "Wedding", date: "2026-12-11", time: "",
+      venue: "Vedanta Farms & Resort", address: "Opp. Machhra Degree College,<br>Garh Road, Uttar Pradesh 250106",
+      mapLink: "https://maps.app.goo.gl/g2kMZHbBYauE4riSA" }
+  ]
+};
+/* ====================================================== */
+
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2,"0");
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+// Toran: alternating marigolds and mango leaves along the string
+(() => {
+  let h = "";
+  for (let i = 0; i < 19; i++) {
+    const x = 10 + i * 18.9, y = 6 + 16 * (1 - Math.pow((x - 180) / 180, 2));
+    h += i % 2 ? `<use href="#leaf" x="${x}" y="${y}"/>` : `<use href="#marigold" x="${x}" y="${y + 9}"/>`;
+  }
+  $("#toranItems").innerHTML = h;
+})();
+
+// Event cards (no embedded maps — they were the main source of lag)
+const icoPin = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+const icoCal = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+function gcal(ev){
+  const [y,m,d] = ev.date.split("-").map(Number);
+  const nx = new Date(Date.UTC(y,m-1,d+1));
+  const loc = ev.venue + (ev.address ? ", " + ev.address.replace(/<br>/g," ") : "");
+  const p = new URLSearchParams({action:"TEMPLATE",text:`Rishabh & Nishu — ${ev.name}`,
+    dates:`${y}${pad(m)}${pad(d)}/${nx.getUTCFullYear()}${pad(nx.getUTCMonth()+1)}${pad(nx.getUTCDate())}`,
+    location:loc, details:`${ev.name} of Rishabh Tyagi & Nishu Tyagi.${ev.time?" Time: "+ev.time+".":""} Directions: ${ev.mapLink}`});
+  return "https://calendar.google.com/calendar/render?" + p;
+}
+$("#event-list").innerHTML = CONFIG.events.map(ev => {
+  const [y,m,d] = ev.date.split("-").map(Number);
+  const dt = new Date(y,m-1,d);
+  return `<article class="event reveal">
+    <h3>${ev.name}</h3>
+    <div class="dt"><div class="side">${DAYS[dt.getDay()]}</div><div class="big">${pad(d)}</div><div class="side">${MONTHS[m-1].slice(0,3)} ${y}</div></div>
+    ${ev.time ? `<div class="time">${ev.time}</div>` : ""}
+    <div class="venue"><strong>${ev.venue}</strong>${ev.address ? `<span>${ev.address}</span>` : ""}</div>
+    <div class="btns">
+      <a class="btn solid" href="${ev.mapLink}" target="_blank" rel="noopener">${icoPin}Directions</a>
+      <a class="btn" href="${gcal(ev)}" target="_blank" rel="noopener">${icoCal}Save date</a>
+    </div>
+  </article>`;
+}).join("");
+
+// Open doors
+const cover = $("#cover"), doors = $("#doors");
+let opened = false;
+function openDoors(){
+  if (opened) return; opened = true;
+  doors.classList.add("open");
+  startMusic();
+  document.body.classList.remove("locked");
+  setTimeout(() => { cover.classList.add("gone"); startPetals(); }, 1150);
+}
+doors.addEventListener("click", openDoors);
+doors.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openDoors(); });
+
+// Countdown — only touches text that changed
+const target = new Date(CONFIG.weddingStart).getTime();
+const els = ["d","h","m","s"].map(k => $("#cd-"+k)), last = [];
+function tick(){
+  let t = Math.max(0, target - Date.now());
+  const v = [Math.floor(t/864e5), pad(Math.floor(t/36e5)%24), pad(Math.floor(t/6e4)%60), pad(Math.floor(t/1e3)%60)];
+  v.forEach((x,i) => { if (last[i] !== x) { els[i].textContent = x; last[i] = x; } });
+}
+tick(); setInterval(tick, 1000);
+
+// Scroll reveal
+const reveals = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
+  reveals.forEach(el => io.observe(el));
+} else reveals.forEach(el => el.classList.add("in"));
+
+// Petals — 8 only, GPU transforms
+function startPetals(){
+    const box = $("#petals"), frag = document.createDocumentFragment();
+  const n = window.innerWidth < 600 ? 10 : 12;
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("i");
+    p.className = "petal";
+    p.style.cssText = `left:${Math.random()*100}%;--dx:${(Math.random()*80-40).toFixed(0)}px;animation-duration:${(11+Math.random()*8).toFixed(1)}s;animation-delay:-${(Math.random()*15).toFixed(1)}s;${i%3===0?"background:#c92a3a;":""}`;
+    frag.appendChild(p);
+  }
+  box.appendChild(frag);
+}
+
+// Music (optional)
+const musicBtn = $("#music"); let audio = null;
+if (CONFIG.music) { audio = new Audio(CONFIG.music); audio.loop = true; audio.preload = "none"; musicBtn.classList.add("show"); }
+function startMusic(){ if (audio) audio.play().catch(()=>{}); }
+musicBtn.addEventListener("click", () => { if (!audio) return; audio.paused ? startMusic() : audio.pause(); });
+
+// Share
+$("#share").addEventListener("click", async () => {
+  const data = { title: "Rishabh & Nishu · Shubh Vivah", text: "You're invited! Engagement 19 Nov & Wedding 11 Dec 2026 🙏", url: location.href };
+  if (navigator.share) { try { await navigator.share(data); } catch(e){} }
+  else window.open("https://wa.me/?text=" + encodeURIComponent(data.text + " " + data.url), "_blank");
+});
+</script>
+</body>
+</html>
