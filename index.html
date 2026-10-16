@@ -32,7 +32,8 @@ a{color:inherit}
 .cover{position:fixed;inset:0;z-index:50;display:flex;justify-content:center}
 .cover.gone{display:none}
 .doors{position:relative;width:100%;max-width:480px;height:100%;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;perspective:1400px}
-.door{position:absolute;top:0;bottom:0;width:50.5%;will-change:transform;transition:transform 1.4s cubic-bezier(.65,0,.35,1);
+.doors{touch-action:none;-webkit-user-select:none;user-select:none}
+.door{position:absolute;top:0;bottom:0;width:50.5%;will-change:transform;transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:transform 1.6s cubic-bezier(.65,0,.35,1);
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cg fill='none' stroke='%23d9b166' stroke-width='.7' opacity='.16'%3E%3Cpath d='M18 4 L32 18 L18 32 L4 18Z'/%3E%3Ccircle cx='18' cy='18' r='3'/%3E%3C/g%3E%3C/svg%3E"),
     radial-gradient(140% 70% at 50% 50%,#8a2434 0%,#6c1a26 60%,#4d111b 100%)}
@@ -62,6 +63,8 @@ a{color:inherit}
 .medal .pulse{position:absolute;inset:16%;border-radius:50%;border:1px solid var(--gold-2);animation:pulse 2.4s ease-out infinite}
 @keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.45);opacity:0}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.medal .tap{transition:transform .15s ease}
+.doors.press .medal .tap{transform:scale(.95)}
 .medal .tap{display:inline-block;margin-top:28px;padding:12px 26px;font-size:15px;font-weight:700;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;color:#4d111b;background:var(--foil);border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.3);position:relative;overflow:hidden}
 .medal .tap::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);animation:shine 2.8s ease-in-out infinite}
 @keyframes shine{60%,100%{left:120%}}
@@ -107,9 +110,10 @@ section{padding:64px 28px;text-align:center}
 .tile{position:relative;flex:1;max-width:190px;height:236px;border-radius:999px 999px 14px 14px;padding:3px;background:var(--foil);box-shadow:0 10px 26px rgba(122,31,43,.18)}
 .tile .under{position:absolute;inset:3px;border-radius:999px 999px 11px 11px;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 6px 14px;overflow:hidden}
 .tile .under::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);border-radius:999px 999px 8px 8px}
-.tile .ev{font-family:var(--script);font-size:30px;color:var(--maroon);line-height:1}
-.tile .dd{font-size:64px;font-weight:700;color:var(--maroon);line-height:1;margin-top:8px}
-.tile .mm{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text);margin-top:4px}
+.tile .ev{font-family:var(--script);font-size:clamp(20px,6.4vw,30px);color:var(--maroon);line-height:1.15;white-space:nowrap;position:relative}
+.tile .dd{font-size:clamp(50px,16vw,64px);font-weight:700;color:var(--maroon);line-height:1;margin-top:6px}
+.tile .mm{font-size:clamp(12px,3.6vw,14px);font-weight:700;letter-spacing:.16em;text-indent:.16em;text-transform:uppercase;color:var(--gold-text);margin-top:6px}
+.tile .yy{font-size:clamp(12px,3.6vw,14px);font-weight:700;letter-spacing:.16em;text-indent:.16em;color:var(--gold-text);margin-top:2px}
 .tile .wd{font-size:16px;font-style:italic;color:var(--muted);margin-top:4px}
 .tile canvas{position:absolute;inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);border-radius:999px 999px 11px 11px;touch-action:none;cursor:grab;transition:opacity .8s ease}
 .tile canvas.done{opacity:0;pointer-events:none}
@@ -138,8 +142,8 @@ section{padding:64px 28px;text-align:center}
 .event .venue{margin-top:18px}
 .event .venue strong{display:block;font-size:24px;font-weight:700}
 .event .venue span{display:block;font-size:18px;color:var(--muted);margin-top:4px;line-height:1.45}
-.btns{display:flex;gap:10px;margin-top:20px}
-.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 8px;font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;text-decoration:none;border:1px solid var(--maroon);color:var(--maroon);background:transparent;cursor:pointer;border-radius:999px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 10px;font-family:var(--serif);font-weight:700;font-size:14px;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;text-decoration:none;border:1px solid var(--maroon);color:var(--maroon);background:transparent;cursor:pointer;border-radius:999px}
 .btn.solid{background:var(--maroon);color:#fbeed3}
 .btn svg{width:15px;height:15px;flex:none}
 
@@ -165,8 +169,25 @@ section{padding:64px 28px;text-align:center}
 .music svg{width:18px;height:18px}
 .music.playing svg{animation:spin 6s linear infinite}
 
-@media (prefers-reduced-motion:reduce){
-  *:not(.petal),*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+.names .n{font-size:clamp(48px,16vw,60px)}
+
+/* ---------- SMALL PHONES (≤ 380px) ---------- */
+@media (max-width:380px){
+  section{padding-left:18px;padding-right:18px}
+  .card{margin-left:14px;margin-right:14px;padding-left:12px;padding-right:12px}
+  .scratch{padding-left:14px;padding-right:14px}
+  .tiles{gap:12px}
+  .tile{height:224px}
+  .event{padding-left:14px;padding-right:14px}
+  .event h3{font-size:38px}
+  .event .dt{gap:10px}
+  .event .dt .side{width:76px;font-size:13px;letter-spacing:.1em}
+  .event .dt .big{font-size:48px}
+  .btns{flex-direction:column}
+  .btn{flex:none;width:100%}
+  .countdown{gap:8px}
+  .cd b{font-size:32px}
+  .cd i{font-size:11px;letter-spacing:.1em}
 }
 </style>
 </head>
@@ -407,7 +428,7 @@ $("#tiles").innerHTML = CONFIG.events.map(ev => {
   const {y,m,d,dt} = parseD(ev.date);
   return `<div class="tile"><div class="under">
       <div class="ev">${ev.name}</div><div class="dd">${pad(d)}</div>
-      <div class="mm">${MONTHS[m-1]} ${y}</div><div class="wd">${DAYS[dt.getDay()]}</div>
+      <div class="mm">${MONTHS[m-1]}</div><div class="yy">${y}</div><div class="wd">${DAYS[dt.getDay()]}</div>
     </div><canvas aria-label="Scratch to reveal the ${ev.name} date"></canvas></div>`;
 }).join("");
 
@@ -421,14 +442,40 @@ function alignInitials(){
 }
 alignInitials(); window.addEventListener("resize", alignInitials);
 let opened = false;
+const DOOR_MS = 1600, DOOR_EASE = "cubic-bezier(.65,0,.35,1)";
 function openDoors(){
   if (opened) return; opened = true;
-  doors.classList.add("open");
+  doors.classList.remove("press");
+  if (navigator.vibrate) navigator.vibrate(15);
   startMusic();
-  document.body.classList.remove("locked");
-  setTimeout(() => { cover.classList.add("gone"); startPetals(); }, 1450);
+  window.scrollTo(0, 0);
+  const L = doors.querySelector(".door.l"), R = doors.querySelector(".door.r");
+  const medal = doors.querySelector(".medal"), seam = doors.querySelector(".seam");
+  // Web Animations API: runs on the compositor and is not switched off by phone
+  // "reduce motion" / battery-saver settings the way CSS transitions can be.
+  if (L.animate) {
+    const o = { duration: DOOR_MS, easing: DOOR_EASE, fill: "forwards" };
+    // start on the next frame so the first frame is never skipped on slower phones
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      medal.animate([{opacity:1,transform:"translate(-50%,-50%) scale(1)"},{opacity:0,transform:"translate(-50%,-50%) scale(1.15)"}], {duration:500,easing:"ease",fill:"forwards"});
+      seam.animate([{opacity:.55},{opacity:0}], {duration:400,fill:"forwards"});
+      L.animate([{transform:"translate3d(0,0,0) rotateY(0deg)"},{transform:"rotateY(-80deg) translate3d(-20%,0,0)"}], {...o, delay:120});
+      R.animate([{transform:"translate3d(0,0,0) rotateY(0deg)"},{transform:"rotateY(80deg) translate3d(20%,0,0)"}], {...o, delay:120});
+    }));
+  } else {
+    doors.classList.add("open");
+  }
+  setTimeout(startReveals, 650);           // hero fades in as the doors part
+  setTimeout(() => {
+    document.body.classList.remove("locked");
+    cover.classList.add("gone"); startPetals();
+  }, DOOR_MS + 200);
 }
+doors.addEventListener("pointerdown", () => doors.classList.add("press"));
+["pointerup","pointercancel","pointerleave"].forEach(t => doors.addEventListener(t, () => doors.classList.remove("press")));
 doors.addEventListener("click", openDoors);
+// stop the page behind the cover from scrolling on iPhone
+cover.addEventListener("touchmove", e => e.preventDefault(), { passive: false });
 doors.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openDoors(); });
 
 // Countdown
@@ -441,12 +488,15 @@ function tick(){
 }
 tick(); setInterval(tick, 1000);
 
-// Scroll reveal
-const reveals = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window) {
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
-  reveals.forEach(el => io.observe(el));
-} else reveals.forEach(el => el.classList.add("in"));
+// Scroll reveal — starts when the doors open, so the hero animates in instead of
+// finishing invisibly behind the closed doors
+function startReveals(){
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(el => io.observe(el));
+  } else reveals.forEach(el => el.classList.add("in"));
+}
 
 // Falling petals
 function startPetals(){
@@ -488,21 +538,23 @@ function paintFoil(c){
     ctx.fillStyle = Math.random() < .5 ? "rgba(255,255,255,.35)" : "rgba(120,80,20,.18)";
     ctx.fillRect(Math.random()*w, Math.random()*h, 1.4*s, 1.4*s);
   }
-  // mandala outline
+  // mandala outline — sized to the card so it never crowds the text on small phones
+  const cw = c.clientWidth, k = cw / 184;           // 184px = card width on a large phone
   ctx.strokeStyle = "rgba(94,21,32,.35)"; ctx.lineWidth = 1*s;
-  const cx = w/2, cy = h*.46;
-  [44, 36].forEach(r => { ctx.beginPath(); ctx.arc(cx, cy, r*s, 0, Math.PI*2); ctx.stroke(); });
+  const cx = w/2, cy = h*.48;
+  [cw*.36, cw*.31].forEach(r => { ctx.beginPath(); ctx.arc(cx, cy, r*s, 0, Math.PI*2); ctx.stroke(); });
   for (let i = 0; i < 12; i++) {
-    const a = i * Math.PI/6;
-    ctx.beginPath(); ctx.ellipse(cx + Math.cos(a)*54*s, cy + Math.sin(a)*54*s, 7*s, 3.2*s, a, 0, Math.PI*2); ctx.stroke();
+    const a = i * Math.PI/6, rr = cw*.42;
+    ctx.beginPath(); ctx.ellipse(cx + Math.cos(a)*rr*s, cy + Math.sin(a)*rr*s, 6*k*s, 2.8*k*s, a, 0, Math.PI*2); ctx.stroke();
   }
   ctx.fillStyle = "#5e1520"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-  ctx.font = `700 ${12*s}px 'Cormorant Garamond', Georgia, serif`;
-  if ("letterSpacing" in ctx) ctx.letterSpacing = `${3*s}px`;
-  ctx.fillText("SCRATCH", cx, cy);
-  ctx.font = `600 ${11*s}px 'Cormorant Garamond', Georgia, serif`;
-  if ("letterSpacing" in ctx) ctx.letterSpacing = `${2*s}px`;
-  ctx.fillText("HERE", cx, cy + 14*s);
+  const fs = Math.max(10, Math.min(14, cw * .072));
+  ctx.font = `700 ${fs*s}px 'Cormorant Garamond', Georgia, serif`;
+  if ("letterSpacing" in ctx) ctx.letterSpacing = `${fs*.2*s}px`;
+  ctx.fillText("SCRATCH", cx, cy - fs*.55*s);
+  ctx.font = `600 ${fs*.92*s}px 'Cormorant Garamond', Georgia, serif`;
+  if ("letterSpacing" in ctx) ctx.letterSpacing = `${fs*.16*s}px`;
+  ctx.fillText("HERE", cx, cy + fs*.75*s);
 }
 function setupScratch(tile){
   const c = tile.querySelector("canvas"), ctx = c.getContext("2d");
