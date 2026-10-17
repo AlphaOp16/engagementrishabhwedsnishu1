@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rishabh & Nishu · Shubh Vivah</title>
-<meta name="description" content="Rishabh Tyagi & Nishu Tyagi invite you to their wedding. Tap to open your invitation.">
-<meta property="og:title" content="Rishabh & Nishu · Shubh Vivah">
-<meta property="og:description" content="You're invited! Tap to open your invitation and scratch to reveal the dates.">
+<title>Rishabh & Nishu · Engagement</title>
+<meta name="description" content="Rishabh Tyagi & Nishu Tyagi invite you to their engagement. Tap to open your invitation.">
+<meta property="og:title" content="Rishabh & Nishu · Engagement">
+<meta property="og:description" content="You're invited! Tap to open your invitation and scratch to reveal the date.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#5e1520">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237a1f2b'/%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='%23d4a85a' stroke-width='2'/%3E%3Ctext x='32' y='40' font-family='Georgia' font-size='20' text-anchor='middle' fill='%23f3dca6'%3ER%26N%3C/text%3E%3C/svg%3E">
@@ -141,7 +141,7 @@ section{padding:64px 28px;text-align:center}
 .event .time{font-size:20px;font-weight:600;font-style:italic;color:var(--ink);margin-top:12px}
 .event .venue{margin-top:18px}
 .event .venue strong{display:block;font-size:24px;font-weight:700}
-.event .venue span{display:block;font-size:18px;color:var(--muted);margin-top:4px;line-height:1.45}
+.event .venue span{display:block;font-size:18px;color:var(--muted);margin-top:4px;line-height:1.45;text-wrap:balance}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .btn{flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 10px;font-family:var(--serif);font-weight:700;font-size:14px;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;text-decoration:none;border:1px solid var(--maroon);color:var(--maroon);background:transparent;cursor:pointer;border-radius:999px}
 .btn.solid{background:var(--maroon);color:#fbeed3}
@@ -156,6 +156,8 @@ section{padding:64px 28px;text-align:center}
 .footer .hash{margin-top:26px;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
 
 .lazy{content-visibility:auto;contain-intrinsic-size:auto 600px}
+#events{padding-bottom:32px}
+.blessing{padding-top:10px}
 
 /* ---------- PETALS ---------- */
 .petals{position:fixed;inset:0;pointer-events:none;z-index:40;max-width:480px;margin:0 auto;overflow:hidden}
@@ -319,16 +321,16 @@ section{padding:64px 28px;text-align:center}
   </section>
 
   <section class="scratch" id="scratch">
-    <div class="eyebrow reveal">Save the dates</div>
+    <div class="eyebrow reveal">Save the date</div>
     <h2 class="title reveal">Scratch to reveal</h2>
-    <p class="hint reveal">Gently scratch the golden cards ✨</p>
+    <p class="hint reveal">Gently scratch the golden card ✨</p>
     <div class="tiles reveal" id="tiles"></div>
     <p class="revealed-msg" id="revealedMsg">Mark your calendar — we can't wait to celebrate with you!</p>
   </section>
 
   <section class="cdown lazy">
     <div class="eyebrow reveal">Counting down to</div>
-    <h2 class="title reveal">the big day</h2>
+    <h2 class="title reveal">the engagement</h2>
     <div class="countdown reveal">
       <div class="cd"><b id="cd-d">0</b><i>Days</i></div>
       <div class="cd"><b id="cd-h">00</b><i>Hours</i></div>
@@ -339,7 +341,7 @@ section{padding:64px 28px;text-align:center}
 
   <section class="lazy" id="events">
     <div class="eyebrow reveal">Join us for</div>
-    <h2 class="title reveal">the celebrations</h2>
+    <h2 class="title reveal">the celebration</h2>
     <div id="event-list"></div>
   </section>
 
@@ -369,14 +371,11 @@ section{padding:64px 28px;text-align:center}
 const CONFIG = {
   music: "music.mp3",                          // song from reference video (loops) — plays after the doors open; "" = no music
   musicVolume: 0.7,
-  weddingStart: "2026-12-11T00:00:00+05:30",   // countdown target
+  engagementStart: "2026-11-19T00:00:00+05:30", // countdown target
   events: [
     { name: "Engagement", date: "2026-11-19", time: "",
       venue: "The Hari Castle", address: "Near EPE Express way Delhi Saharanpur Road,<br>Mavikala, Baghpat, Uttar Pradesh 250101",
-      mapLink: "https://maps.app.goo.gl/5Pe3vLVRzoSUtDAH9" },
-    { name: "Wedding", date: "2026-12-11", time: "",
-      venue: "Vedanta Farms & Resort", address: "Opp. Machhra Degree College,<br>Garh Road, Uttar Pradesh 250106",
-      mapLink: "https://maps.app.goo.gl/g2kMZHbBYauE4riSA" }
+      mapLink: "https://maps.app.goo.gl/5Pe3vLVRzoSUtDAH9" }
   ]
 };
 /* ====================================================== */
@@ -479,7 +478,7 @@ cover.addEventListener("touchmove", e => e.preventDefault(), { passive: false })
 doors.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openDoors(); });
 
 // Countdown
-const target = new Date(CONFIG.weddingStart).getTime();
+const target = new Date(CONFIG.engagementStart).getTime();
 const els = ["d","h","m","s"].map(k => $("#cd-"+k)), last = [];
 function tick(){
   let t = Math.max(0, target - Date.now());
@@ -617,7 +616,7 @@ document.addEventListener("visibilitychange", () => { if (audio && document.hidd
 
 // Share
 $("#share").addEventListener("click", async () => {
-  const data = { title: "Rishabh & Nishu · Shubh Vivah", text: "You're invited to Rishabh & Nishu's wedding! Open the invite and scratch to reveal the dates 🙏", url: location.href };
+  const data = { title: "Rishabh & Nishu · Engagement", text: "You're invited to Rishabh & Nishu's engagement! Open the invite and scratch to reveal the date 🙏", url: location.href };
   if (navigator.share) { try { await navigator.share(data); } catch(e){} }
   else window.open("https://wa.me/?text=" + encodeURIComponent(data.text + " " + data.url), "_blank");
 });
